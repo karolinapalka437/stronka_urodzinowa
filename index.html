@@ -369,6 +369,38 @@ h1{
                 45 LAT • ZERO ROZSĄDKU • MAKSIMUM WSPOMNIEŃ
             </div>
 
+            <div class="small">
+                <br>
+  Time left: <span id="timer">23:59:59</span>
+</div>
+
+<script>
+  // starting time in seconds (23:59:59)
+  let totalSeconds = 23 * 3600 + 59 * 60 + 59;
+
+  function formatTime(sec) {
+    const h = String(Math.floor(sec / 3600)).padStart(2, '0');
+    const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
+    const s = String(sec % 60).padStart(2, '0');
+    return `${h}:${m}:${s}`;
+  }
+
+  function updateTimer() {
+    const display = document.getElementById("timer");
+    display.textContent = formatTime(totalSeconds);
+
+    if (totalSeconds > 0) {
+      totalSeconds--;
+    } else {
+      clearInterval(interval);
+      display.textContent = "00:00:00";
+    }
+  }
+
+  updateTimer(); // initial render
+  const interval = setInterval(updateTimer, 1000);
+</script>
+
         </div>
 
     </div>
