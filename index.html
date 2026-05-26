@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Free drinks voucher</title>
+<title>Free Drinks Voucher</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,19 +30,44 @@ body{
     color:white;
     font-family:'Montserrat', sans-serif;
 
+    /* WAŻNE:
+       gradient jest dużo delikatniejszy,
+       żeby było widać kieliszki i imprezowy klimat */
     background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.60)),
+    linear-gradient(
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.45)
+    ),
     url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1800&auto=format&fit=crop');
 
     background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
 }
 
+/* subtelny glow imprezowy */
+.party-glow{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(255,0,140,0.18),
+    transparent 25%),
+
+    radial-gradient(circle at bottom left,
+    rgba(255,200,0,0.12),
+    transparent 25%);
+}
+
+/* lekkie rozmycie ale dużo słabsze niż wcześniej */
 .overlay{
     position:fixed;
     inset:0;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(1px);
     z-index:0;
 }
 
@@ -57,7 +82,7 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding:60px 20px;
+    padding:24px 16px;
 }
 
 .card{
@@ -65,13 +90,13 @@ body{
     width:100%;
     max-width:920px;
 
-    padding:70px 55px;
+    padding:48px 28px;
 
-    background:rgba(18,18,18,0.42);
+    background:rgba(15,15,15,0.45);
 
     border:1px solid rgba(255,255,255,0.12);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
 
     border-radius:30px;
 
@@ -84,21 +109,21 @@ body{
 .top-text{
     letter-spacing:4px;
     text-transform:uppercase;
-    font-size:0.78rem;
-    opacity:0.72;
+    font-size:0.72rem;
+    opacity:0.75;
 
-    margin-bottom:25px;
+    margin-bottom:22px;
 }
 
 h1{
     font-family:'Cormorant Garamond', serif;
 
-    font-size:5.2rem;
+    font-size:4.2rem;
     line-height:0.95;
 
     font-weight:700;
 
-    margin-bottom:40px;
+    margin-bottom:34px;
 
     color:#f7f2ea;
 }
@@ -106,44 +131,44 @@ h1{
 .intro{
     max-width:720px;
 
-    margin:0 auto 50px auto;
+    margin:0 auto 42px auto;
 
-    line-height:2;
-    font-size:1.05rem;
+    line-height:1.9;
+    font-size:1rem;
 
-    color:rgba(255,255,255,0.82);
+    color:rgba(255,255,255,0.88);
 }
 
 .divider{
-    width:120px;
+    width:110px;
     height:1px;
 
     background:rgba(255,255,255,0.25);
 
-    margin:0 auto 45px auto;
+    margin:0 auto 40px auto;
 }
 
 .mission-label{
 
-    font-size:0.82rem;
+    font-size:0.78rem;
 
     letter-spacing:3px;
 
     text-transform:uppercase;
 
-    color:#d8c4a3;
+    color:#f3d5a9;
 
-    margin-bottom:20px;
+    margin-bottom:16px;
 }
 
 .task{
     font-family:'Cormorant Garamond', serif;
 
-    font-size:2.4rem;
+    font-size:2.1rem;
 
     line-height:1.35;
 
-    margin-bottom:35px;
+    margin-bottom:28px;
 
     color:white;
 
@@ -159,15 +184,15 @@ h1{
 
     margin:0 auto;
 
-    color:rgba(255,255,255,0.78);
+    color:rgba(255,255,255,0.82);
 
-    line-height:2.1;
+    line-height:2;
 
-    font-size:1rem;
+    font-size:0.98rem;
 }
 
 .button{
-    margin-top:60px;
+    margin-top:50px;
 
     display:inline-flex;
     align-items:center;
@@ -175,17 +200,17 @@ h1{
 
     gap:12px;
 
-    padding:18px 36px;
+    padding:17px 34px;
 
     border-radius:999px;
 
-    border:1px solid rgba(255,255,255,0.2);
+    border:1px solid rgba(255,255,255,0.22);
 
-    background:rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.10);
 
     color:white;
 
-    font-size:0.95rem;
+    font-size:0.92rem;
 
     letter-spacing:1px;
 
@@ -195,7 +220,7 @@ h1{
 }
 
 .button:hover{
-    background:rgba(255,255,255,0.16);
+    background:rgba(255,255,255,0.18);
     transform:translateY(-2px);
 }
 
@@ -213,16 +238,16 @@ h1{
     opacity:1;
     max-height:200px;
 
-    margin-top:45px;
+    margin-top:40px;
 }
 
 .final-line{
 
     font-family:'Cormorant Garamond', serif;
 
-    font-size:2rem;
+    font-size:1.8rem;
 
-    color:#f2dfc2;
+    color:#ffe6bf;
 
     line-height:1.5;
 }
@@ -230,46 +255,50 @@ h1{
 .small{
     margin-top:12px;
 
-    opacity:0.7;
+    opacity:0.72;
 
     letter-spacing:2px;
 
     text-transform:uppercase;
 
-    font-size:0.75rem;
+    font-size:0.72rem;
 }
 
+/* MOBILE */
 @media(max-width:768px){
-
-    body{
-        background-attachment:scroll;
-    }
 
     .container{
         align-items:flex-start;
-        padding:30px 15px;
+        padding:18px 14px 30px;
     }
 
     .card{
-        padding:45px 28px;
+        padding:38px 22px;
+        border-radius:24px;
     }
 
     h1{
-        font-size:3.4rem;
+        font-size:3rem;
     }
 
     .task{
-        font-size:1.9rem;
+        font-size:1.7rem;
     }
 
     .intro,
     .task-details{
-        font-size:0.95rem;
-        line-height:1.9;
+        font-size:0.94rem;
+        line-height:1.8;
     }
 
     .button{
         width:100%;
+    }
+
+    /* na telefonie pokazujemy bardziej górę zdjęcia,
+       gdzie są kieliszki */
+    body{
+        background-position:center top;
     }
 }
 
@@ -278,6 +307,7 @@ h1{
 
 <body>
 
+<div class="party-glow"></div>
 <div class="overlay"></div>
 
 <div class="container">
