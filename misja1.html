@@ -243,8 +243,6 @@ body{
   const STORAGE_KEY = 'misja1_end_time';
   const DURATION = 48 * 3600; // seconds
 
-  localStorage.removeItem(STORAGE_KEY);
-
   // Store end time in localStorage so timer survives page reloads
   if (!localStorage.getItem(STORAGE_KEY)) {
     const endTime = Date.now() + DURATION * 1000;
