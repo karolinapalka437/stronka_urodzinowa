@@ -233,7 +233,7 @@ body{
         </div>
 
         <div class="note">
-            Jak ukończysz zadanie, kolejne pojawią się w świecie rzeczywistym.
+            Jak ukończysz zadanie, kolejne pojawią w świecie rzeczywistym.
         </div>
 
     </div>
@@ -242,6 +242,8 @@ body{
 <script>
   const STORAGE_KEY = 'misja1_end_time';
   const DURATION = 48 * 3600; // seconds
+
+  localStorage.removeItem(STORAGE_KEY);
 
   // Store end time in localStorage so timer survives page reloads
   if (!localStorage.getItem(STORAGE_KEY)) {
