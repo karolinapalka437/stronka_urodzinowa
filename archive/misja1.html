@@ -155,17 +155,6 @@ body{
     font-size:0.98rem;
 }
 
-.note{
-    max-width:650px;
-    margin:40px auto 0 auto;
-    padding-top:40px;
-    border-top:1px solid rgba(255,255,255,0.15);
-    color:rgba(255,200,100,0.85);
-    font-size:0.92rem;
-    line-height:1.6;
-    font-style:italic;
-}
-
 @media(max-width:768px){
 
     .container{
@@ -210,7 +199,7 @@ body{
 
         <div class="timer-block">
             <div class="timer-label">Czas misji</div>
-            <div class="timer-display" id="timer">48:00:00</div>
+            <div class="timer-display" id="timer">23:59:59</div>
         </div>
 
         <div class="divider"></div>
@@ -232,16 +221,12 @@ body{
             — czy wie, gdzie ukryła się młodość solenizantki
         </div>
 
-        <div class="note">
-            Jak ukończysz zadanie, kolejne pojawią się w świecie rzeczywistym.
-        </div>
-
     </div>
 </div>
 
 <script>
   const STORAGE_KEY = 'misja1_end_time';
-  const DURATION = 48 * 3600; // seconds
+  const DURATION = 23 * 3600 + 59 * 60 + 59; // seconds
 
   // Store end time in localStorage so timer survives page reloads
   if (!localStorage.getItem(STORAGE_KEY)) {

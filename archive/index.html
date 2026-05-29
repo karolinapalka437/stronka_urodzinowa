@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Misja 1 — Marsaxlokk</title>
+
+<title>Free Drinks Voucher</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -28,6 +30,9 @@ body{
     color:white;
     font-family:'Montserrat', sans-serif;
 
+    /* WAŻNE:
+       gradient jest dużo delikatniejszy,
+       żeby było widać kieliszki i imprezowy klimat */
     background:
     linear-gradient(
         rgba(0,0,0,0.25),
@@ -41,6 +46,7 @@ body{
     background-attachment:scroll;
 }
 
+/* subtelny glow imprezowy */
 .party-glow{
     position:fixed;
     inset:0;
@@ -57,6 +63,7 @@ body{
     transparent 25%);
 }
 
+/* lekkie rozmycie ale dużo słabsze niż wcześniej */
 .overlay{
     position:fixed;
     inset:0;
@@ -79,6 +86,7 @@ body{
 }
 
 .card{
+
     width:100%;
     max-width:920px;
 
@@ -98,25 +106,37 @@ body{
     text-align:center;
 }
 
-.timer-block{
-    margin-bottom:44px;
-}
-
-.timer-label{
-    font-size:0.72rem;
+.top-text{
     letter-spacing:4px;
     text-transform:uppercase;
-    opacity:0.65;
-    margin-bottom:14px;
+    font-size:0.72rem;
+    opacity:0.75;
+
+    margin-bottom:22px;
 }
 
-.timer-display{
+h1{
     font-family:'Cormorant Garamond', serif;
-    font-size:6.5rem;
+
+    font-size:4.2rem;
+    line-height:0.95;
+
     font-weight:700;
-    line-height:1;
-    color:#ffe6bf;
-    letter-spacing:4px;
+
+    margin-bottom:34px;
+
+    color:#f7f2ea;
+}
+
+.intro{
+    max-width:720px;
+
+    margin:0 auto 42px auto;
+
+    line-height:1.9;
+    font-size:1rem;
+
+    color:rgba(255,255,255,0.88);
 }
 
 .divider{
@@ -129,43 +149,122 @@ body{
 }
 
 .mission-label{
+
     font-size:0.78rem;
+
     letter-spacing:3px;
+
     text-transform:uppercase;
+
     color:#f3d5a9;
+
     margin-bottom:16px;
 }
 
 .task{
     font-family:'Cormorant Garamond', serif;
+
     font-size:2.1rem;
+
     line-height:1.35;
+
     margin-bottom:28px;
+
     color:white;
+
     max-width:760px;
+
     margin-left:auto;
     margin-right:auto;
 }
 
 .task-details{
+
     max-width:650px;
+
     margin:0 auto;
+
     color:rgba(255,255,255,0.82);
+
     line-height:2;
+
     font-size:0.98rem;
 }
 
-.note{
-    max-width:650px;
-    margin:40px auto 0 auto;
-    padding-top:40px;
-    border-top:1px solid rgba(255,255,255,0.15);
-    color:rgba(255,200,100,0.85);
+.button{
+    margin-top:50px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    padding:17px 34px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,0.22);
+
+    background:rgba(255,255,255,0.10);
+
+    color:white;
+
     font-size:0.92rem;
-    line-height:1.6;
-    font-style:italic;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
 }
 
+.button:hover{
+    background:rgba(255,255,255,0.18);
+    transform:translateY(-2px);
+}
+
+.hidden{
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+
+    transition:all 0.8s ease;
+
+    margin-top:0;
+}
+
+.hidden.show{
+    opacity:1;
+    max-height:200px;
+
+    margin-top:40px;
+}
+
+.final-line{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.8rem;
+
+    color:#ffe6bf;
+
+    line-height:1.5;
+}
+
+.small{
+    margin-top:12px;
+
+    opacity:0.72;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    font-size:0.72rem;
+}
+
+/* MOBILE */
 @media(max-width:768px){
 
     .container{
@@ -178,20 +277,26 @@ body{
         border-radius:24px;
     }
 
-    .timer-display{
-        font-size:4rem;
-        letter-spacing:2px;
+    h1{
+        font-size:3rem;
     }
 
     .task{
         font-size:1.7rem;
     }
 
+    .intro,
     .task-details{
         font-size:0.94rem;
         line-height:1.8;
     }
 
+    .button{
+        width:100%;
+    }
+
+    /* na telefonie pokazujemy bardziej górę zdjęcia,
+       gdzie są kieliszki */
     body{
         background-position:center top;
     }
@@ -206,53 +311,58 @@ body{
 <div class="overlay"></div>
 
 <div class="container">
+
     <div class="card">
 
-        <div class="timer-block">
-            <div class="timer-label">Czas misji</div>
-            <div class="timer-display" id="timer">48:00:00</div>
+        <div class="top-text">
+            Marsaxlokk • Malta • Birthday Mission
         </div>
+
+        <h1>
+            W poszukiwaniu<br>
+            zaginionej młodości
+        </h1>
+
+        <p class="intro">
+            Niektóre legendy mówią o skarbach.
+            Inne o wielkiej miłości.
+            Ale dziś wieczorem poszukujemy czegoś znacznie cenniejszego —
+            zaginionej młodości solenizantki.
+            <br><br>
+            Podobno ostatni raz widziano ją gdzieś pomiędzy prosecco,
+            zachodem słońca i niebezpiecznie dobrymi decyzjami.
+        </p>
 
         <div class="divider"></div>
 
-        <div class="mission-label">
-            Zadanie pierwsze
-        </div>
-
         <div class="task">
-            Znajdź człowieka, który wygląda,
-            jakby znał wszystkie plotki Marsaxlokk.
+            Dagmaro, podejmij wyzwanie już dziś!
         </div>
 
-        <div class="task-details">
-            Zrób z nim zdjęcie i dowiedz się:
-            <br><br>
-            — skąd jest<br>
-            — co poleca do picia<br>
-            — czy wie, gdzie ukryła się młodość solenizantki
-        </div>
+        <button class="button" onclick="window.location.href='misja1.html'">
+            Rozpocznij misję ✨
+        </button>
 
-        <div class="note">
-            Jak ukończysz zadanie, kolejne pojawią się w świecie rzeczywistym.
-        </div>
+        <div class="hidden" id="message">
 
-    </div>
+            <div class="final-line">
+                Operacja właśnie się rozpoczęła.
+            </div>
+
+            <div class="small">
+                45 LAT • ZERO ROZSĄDKU • MAKSIMUM WSPOMNIEŃ 
+            </div>
+
+            <div class="small">
+                <br>
+  Time left: <span id="timer">23:59:59</span>
 </div>
 
 <script>
-  const STORAGE_KEY = 'misja1_end_time';
-  const DURATION = 48 * 3600; // seconds
-
-  // Store end time in localStorage so timer survives page reloads
-  if (!localStorage.getItem(STORAGE_KEY)) {
-    const endTime = Date.now() + DURATION * 1000;
-    localStorage.setItem(STORAGE_KEY, endTime);
-  }
-
-  const endTime = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+  // starting time in seconds (23:59:59)
+  let totalSeconds = 23 * 3600 + 59 * 60 + 59;
 
   function formatTime(sec) {
-    if (sec < 0) sec = 0;
     const h = String(Math.floor(sec / 3600)).padStart(2, '0');
     const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
     const s = String(sec % 60).padStart(2, '0');
@@ -260,16 +370,33 @@ body{
   }
 
   function updateTimer() {
-    const remaining = Math.floor((endTime - Date.now()) / 1000);
-    const display = document.getElementById('timer');
-    display.textContent = formatTime(remaining);
-    if (remaining <= 0) {
+    const display = document.getElementById("timer");
+    display.textContent = formatTime(totalSeconds);
+
+    if (totalSeconds > 0) {
+      totalSeconds--;
+    } else {
       clearInterval(interval);
+      display.textContent = "00:00:00";
     }
   }
 
-  updateTimer();
+  updateTimer(); // initial render
   const interval = setInterval(updateTimer, 1000);
+</script>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function revealMessage(){
+    document.getElementById("message").classList.add("show");
+}
+
 </script>
 
 </body>
